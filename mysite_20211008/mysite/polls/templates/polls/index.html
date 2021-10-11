@@ -1,0 +1,21 @@
+<!-- polls/templates/polls/index.html 
+  {'latest_question_list': latest_question_list} 정보 전달됨 -->
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<!--
+ no such table: pools_question
+  서버 강제 종료. Ctrl+c
+  
+  python manage.py makemigrations
+  python manage.py migrate
+  python manage.py runserver
+
+  브라우저에서 다시 실행  
+-->

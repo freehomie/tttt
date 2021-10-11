@@ -1,0 +1,16 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %} <!-- 보안설정 -->
+<!-- question.choice_set.all : question 조회된 레코드와 관련된
+     Choice 테이블 정보들  전부를 리턴 -->
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}"
+     value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+    <br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>

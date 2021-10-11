@@ -1,0 +1,27 @@
+이희교_평가자 체크 테스트
+
+# 1번 pythontest.xlsx 파일을 읽어 df 변수에 저장하기. index이름은 학생의 이름
+import pandas as pd
+df = pd.read_excel('pythontest.xlsx',index_col=0)
+df
+
+# 2번 알고리즘 과목의 평균
+df['알고리즘'].mean()
+
+# 3번 파이썬 과목의 중간값을 구하여 출력
+df['파이썬'].median()
+
+# 4번 R 과목의 표준편차값을 구하여 출력
+df['R'].std()
+
+# 5번 각 과목의 상관계수를 출력
+df.corr()
+
+# 6번 홍길동 학생의 과목 평균
+df.iloc[0].mean()
+
+# 7번 각 과목별 합계
+df.sum()
+
+# 8번. 각 이름별 합계
+df[0:].sum(axis=1)
